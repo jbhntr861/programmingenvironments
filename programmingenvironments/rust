@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Update and upgrade system
+sudo apt-get update
+sudo apt-get upgrade
+
+# Install build-essential, which includes g++ and other necessary tools
+sudo apt-get install build-essential
+
+# Install Rustup, the Rust toolchain manager
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Add Rust to PATH
+source $HOME/.cargo/env
+
+# Install a good text editor
+sudo apt-get install vim
+
+# Install Rust Language Server for IDE support
+rustup component add rls rust-analysis rust-src
+
+# Install the Clippy linter for Rust
+rustup component add clippy
+
+echo "Rust development environment setup complete!"
