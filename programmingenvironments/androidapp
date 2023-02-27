@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Install Java Development Kit (JDK)
+sudo apt-get install openjdk-11-jdk
+
+# Install Android Studio
+sudo snap install android-studio --classic
+
+# Set up environment variables
+echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> ~/.bashrc
+echo 'export ANDROID_HOME=$HOME/Android/Sdk' >> ~/.bashrc
+echo 'export PATH=$PATH:$ANDROID_HOME/emulator' >> ~/.bashrc
+echo 'export PATH=$PATH:$ANDROID_HOME/tools' >> ~/.bashrc
+echo 'export PATH=$PATH:$ANDROID_HOME/tools/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> ~/.bashrc
+
+# Reload the environment variables
+source ~/.bashrc
+
+# Install required Android SDK packages
+yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-30" "build-tools;30.0.2" "extras;android;m2repository" "extras;google;m2repository"
