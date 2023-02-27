@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Update and upgrade system
+sudo apt-get update
+sudo apt-get upgrade
+
+# Install build-essential, which includes g++ and other necessary tools
+sudo apt-get install build-essential
+
+# Install CMake
+sudo apt-get install cmake
+
+# Install version control tools
+sudo apt-get install git
+
+# Install a good text editor
+sudo apt-get install vim
+
+# Install the GNU Debugger (GDB)
+sudo apt-get install gdb
+
+# Install the Boost C++ Libraries
+sudo apt-get install libboost-all-dev
+
+# Install the Google Test framework for unit testing
+sudo apt-get install libgtest-dev
+cd /usr/src/gtest
+sudo cmake CMakeLists.txt
+sudo make
+sudo cp *.a /usr/lib
+
+echo "C++ development environment setup complete!"
