@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Update package list and upgrade packages
+sudo apt-get update
+sudo apt-get upgrade
+
+# Install Python 3 and pip
+sudo apt-get install python3 python3-pip
+
+# Install virtual environment
+sudo apt-get install python3-venv
+
+# Create a new virtual environment for Python 3
+python3 -m venv myenv
+
+# Activate the virtual environment
+source myenv/bin/activate
+
+# Install common packages
+pip install numpy pandas matplotlib jupyter
+
+# Deactivate the virtual environment
+deactivate
